@@ -1,37 +1,88 @@
-# web-link
 
-#### 介绍
+
+# zyan/web-link
+
 获取网站友情链接
 
-#### 软件架构
-软件架构说明
 
+## 要求
 
-#### 安装教程
+1. php >= 7.3
+2. Composer
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## 安装
 
-#### 使用说明
+```shell
+composer require zyan/web-link -vvv
+```
+## 用法
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+```php
+use Zyan\WebLink\WebLink;
 
-#### 参与贡献
+$link = new WebLink('http://www.dj97.com');
+```
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+获取友情链接(外链)
 
+```php
+$link->externalLinks();
 
-#### 特技
+/*
+Array
+(
+    [0] => Array
+        (
+            [name] => 水晶DJ APP下载
+            [url] => http://www.djapp.com.cn/?f=down-97index
+        )
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+    [1] => Array
+        (
+            [name] => 
+            [url] => http://www.djapp.com.cn/?f=down-97index
+        )
+
+    [2] => Array
+        (
+            [name] => 听音乐
+            [url] => http://www.lizhi.fm
+        )
+
+    [3] => Array
+        (
+            [name] => 嗨瑶音乐
+            [url] => http://www.92kk.com
+        )
+
+    [4] => Array
+        (
+            [name] => 火影忍者
+            [url] => http://www.narutom.com
+        )
+    ...
+)
+*/
+
+```
+
+重新设置url
+
+```php
+
+$link->setHtml('http://www.baidu.com');
+$link->externalLinks();
+//...
+```
+
+## 参与贡献
+
+1. fork 当前库到你的名下
+3. 在你的本地修改完成审阅过后提交到你的仓库
+4. 提交 PR 并描述你的修改，等待合并
+> 注: 本项目同时发布在gitee 请使用github提交      
+> github: https://github.com/aa24615/web-link
+
+## License
+
+[MIT license](https://opensource.org/licenses/MIT)
